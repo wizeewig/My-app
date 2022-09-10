@@ -4,13 +4,10 @@ import About from './Components/About';
 import Alert from './Components/Alert';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Routes,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes} from "react-router-dom";
 
 function App() {
 
@@ -29,7 +26,21 @@ function App() {
         )
   }
 
-  const toggleMode=()=>{
+  /* Adding colour palletes*/ 
+  //  const removeBodyClasses=()=>{
+  //      document.body.classList.remove('bg-light')
+  //      document.body.classList.remove('bg-dark')
+  //      document.body.classList.remove('bg-success')
+  //      document.body.classList.remove('bg-warning')
+  //      document.body.classList.remove('bg-danger')
+  //      document.body.classList.remove('bg-primary')
+  //  }
+
+  const toggleMode=(cls)=>{
+    
+    // removeBodyClasses();
+    // document.body.classList.add("bg-"+cls)
+
     if(mode==='light'){
     setMode('dark')
     document.body.style.backgroundColor='#042743'
@@ -43,22 +54,22 @@ function App() {
 }
   return (
     <>
-    {/* <Router>
+    <Router>
     <Navbar title="My-App" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert} />
     <div className='container my-3'>
         <Routes>
             <Route exact path="/" element={<TextForm showAlert={showAlert} title="Enter Text Here" mode={mode}/>} />
-            <Route exact path="/about" element={<About/>} />
+            <Route exact path="/about" element={<About mode={mode} />} />
         </Routes>
     </div>
-    </Router> */}
-    <Navbar title="My-App" mode={mode} toggleMode={toggleMode}/>
+    </Router>
+    {/* <Navbar title="My-App" mode={mode} toggleMode={toggleMode}/>
     <Alert alert={alert} />
     <div className='container my-3'>
       <TextForm showAlert={showAlert} title="Enter Text Here" mode={mode}/>
-    </div>
-    </>
+    </div> */}
+    </> 
     
   );
 }
